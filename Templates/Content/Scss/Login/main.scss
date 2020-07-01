@@ -1,0 +1,49 @@
+@import "../main.scss";
+
+.login-form-wrapper
+{
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  position: absolute;
+  display: flex;
+  z-index: 100;
+  float: left;
+  top: 0px;
+
+  .login-form
+  {
+    background: white;
+    background: white;
+    padding: 3px 15px;
+    border-radius: 10px;
+
+    .header{
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    .login-button
+    {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      border-radius: 0px 0px 10px 10px;
+    }
+
+    .login-form-errorMessage, .login-form-errorMessage
+    {
+      font-size: 13px;
+    }
+
+    .login-form-errorMessage
+    {
+      color: red;
+    }
+
+    .login-form-successMessage
+    {
+      color: green;
+    }
+  }
+}

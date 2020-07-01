@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2d9b942-e917-444c-a4b3-08e15f9acb3b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="main" pattern="!file:Templates/Content/Scss/main.scss" />
+  </component>
+  <component name="ProjectId" id="1e4b3y7uczS4q4p7AKclCgXh11A" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Templates/Scripts" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\!Programs\Open Server\OSPanel\domains\test.site\Templates\Scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\!Programs\Open Server\OSPanel\domains\test.site\Framework\Core\System" />
+      <recent name="C:\!Programs\Open Server\OSPanel\domains\test.site\Controllers" />
+      <recent name="C:\!Programs\Open Server\OSPanel\domains\test.site\Templates\Content\Css\Home" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2d9b942-e917-444c-a4b3-08e15f9acb3b" name="Default Changelist" comment="" />
+      <created>1593583616600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593583616600</updated>
+      <workItem from="1593583617750" duration="1800000" />
+      <workItem from="1593585950768" duration="1037000" />
+      <workItem from="1593586995418" duration="46887000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="873" y="363" key="#File_Watchers" timestamp="1593586865872">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="873" y="363" key="#File_Watchers/0.0.2560.1409@0.0.2560.1409" timestamp="1593586865872" />
+    <state x="1061" y="428" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1593589369349">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="1061" y="428" key="#com.intellij.ide.macro.MacrosDialog/0.0.2560.1409@0.0.2560.1409" timestamp="1593589369349" />
+    <state x="917" y="483" width="726" height="666" key="EditFileWatcherDialog" timestamp="1593589501718">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="917" y="483" width="726" height="666" key="EditFileWatcherDialog/0.0.2560.1409@0.0.2560.1409" timestamp="1593589501718" />
+    <state x="1061" y="571" key="FileChooserDialogImpl" timestamp="1593586716039">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="1061" y="571" key="FileChooserDialogImpl/0.0.2560.1409@0.0.2560.1409" timestamp="1593586716039" />
+    <state x="782" y="347" key="SettingsEditor" timestamp="1593589503302">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="782" y="347" key="SettingsEditor/0.0.2560.1409@0.0.2560.1409" timestamp="1593589503302" />
+    <state x="582" y="726" key="scopes" timestamp="1593589401927">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="582" y="726" key="scopes/0.0.2560.1409@0.0.2560.1409" timestamp="1593589401927" />
+    <state x="943" y="317" width="672" height="678" key="search.everywhere.popup" timestamp="1593628160820">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="943" y="317" width="672" height="678" key="search.everywhere.popup/0.0.2560.1409@0.0.2560.1409" timestamp="1593628160820" />
+  </component>
+</project>

@@ -1,0 +1,15 @@
+#Don't touch this
+RewriteEngine on
+
+#Rewrite rules
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#RewriteCond %{HTTPS} =off 
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
+
+RewriteRule ^(.+)$ index.php
+
+#Charset configuration
+AddDefaultCharset utf-8

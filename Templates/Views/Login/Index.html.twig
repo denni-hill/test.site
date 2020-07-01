@@ -1,0 +1,35 @@
+{% extends "Shared/~base.html.twig" %}
+{% block bodytag %}
+    <div class="login-form-wrapper">
+        <div class="container login-form">
+            <div class="row header">
+                <div class="col"><p>Log-In form</p></div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control username-todo-intput" placeholder="Login" aria-label="Name" aria-describedby="basic-addon1" id="login-field">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-key" aria-hidden="true"></i></span>
+                </div>
+                <input type="password" class="form-control username-todo-intput" placeholder="Password" aria-label="Name" aria-describedby="basic-addon2" id="password-field">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="login-form-errorMessage" id="login-form-errorMessage"></p>
+                    <p class="login-form-successMessage" id="login-form-successMessage"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary login-button" id="submit-button">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ templates_dir }}/Scripts/sha256.js"></script>
+    <script type="text/javascript" src="{{ templates_dir }}/Scripts/login.js"></script>
+{% endblock %}

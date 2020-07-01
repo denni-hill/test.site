@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <head>
+        <link rel="stylesheet" href="{{ templates_dir }}/Content/Libs/font-awasome/css/font-awesome.min.css">
+        {% block maincssfile %}
+            <link type="text/css" rel="stylesheet" href="{{ css_path }}" media="screen,projection"/>
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        {% block head %}
+        {% endblock %}
+        <title>{% block page_title %}Главная страница{% endblock %} | Задачник</title>
+    </head>
+</head>
+<body>
+        {% block bodytag %}
+
+        {% endblock %}
+        <script src="{{ templates_dir }}/Content/Libs/jquery/jquery-3.5.1.min.js"></script>
+        <script src="{{ templates_dir }}/Scripts/ajax.js"></script>
+        <script src="{{ templates_dir }}/Content/Libs/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

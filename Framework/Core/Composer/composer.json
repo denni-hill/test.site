@@ -1,0 +1,7 @@
+{
+    "require":
+    {
+        "twig/twig": "v2.4.4",
+        "gabordemooij/redbean": "dev-master"
+    }
+}
