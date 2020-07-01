@@ -7,6 +7,12 @@ class IndexController extends _IndexController implements iController
 
         if(!empty($_POST))
         {
+            if(!(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['is_admin'] == 1))
+            {
+                $this->AddRedirect("/Login/Index");
+                echo $this->GetJsonServerAnswer();
+                return;
+            }
             if(strtolower($app_info["uri_parts"][1]) == "addtask") {
                 if ($this->ValidateInputData($_POST["name"], $_POST["email"], $_POST["task"])) {
                     $TODOModel = new TODOModel();
