@@ -5,7 +5,7 @@ class EditTaskController extends Base_Controller implements iController
     {
         if(!(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['is_admin'] == 1))
         {
-            $this->AddRedirect("/Login/Index");
+            $this->AddRedirect("/Auth/Index");
             echo $this->GetJsonServerAnswer();
             return;
         }

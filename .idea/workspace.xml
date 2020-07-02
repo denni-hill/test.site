@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2d9b942-e917-444c-a4b3-08e15f9acb3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/404/IndexController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Auth/IndexController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Auth/LogoutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Home/AddTaskController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Home/EditTaskController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Home/GetTaskController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Auth/UserModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/Content/Css/404/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/Content/Css/Auth/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/Content/Scss/Auth/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/Views/404/Index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/Views/Auth/Index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Home/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Home/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Login/IndexController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/Core/Bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Core/Bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/Core/System/_IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Core/System/_IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Home/TODOModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Home/TODOModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Content/Css/Login/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Content/Scss/Login/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Scripts/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Scripts/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Scripts/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Scripts/todo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Views/Home/Index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Views/Home/Index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Views/Login/Index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Home/EditTaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Home/EditTaskController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +74,8 @@
       <workItem from="1593635906032" duration="1028000" />
       <workItem from="1593639437943" duration="165000" />
       <workItem from="1593693097718" duration="73000" />
-      <workItem from="1593707050132" duration="3733000" />
+      <workItem from="1593707050132" duration="5155000" />
+      <workItem from="1593713129674" duration="51000" />
     </task>
     <servers />
   </component>
