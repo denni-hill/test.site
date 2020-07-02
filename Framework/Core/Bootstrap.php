@@ -73,12 +73,13 @@ class MVCEngine
         define("ACTIVE_APP", $this->App['name']);
         define("ACTIVE_APP_DIR", CONTROLLERS_DIR . '/' . $this->App['name']);
 
-        $models = glob(MODELS_DIR . '/' . $this->App['name'] . '/*Model.php');
+        $models = glob(MODELS_DIR . '/*/*Model.php');
         foreach ($models as $model) {
             require $model;
         }
 
         require CONTROLLERS_DIR . '/' . $this->App['name'] . '/IndexController.php';
-        (new IndexController())->Index($this->App);
+        $controller_obj = new IndexController();
+        $controller_obj->ProcessApp($controller_obj, $this->App);
     }
 }

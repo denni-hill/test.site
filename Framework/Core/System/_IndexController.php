@@ -1,7 +1,7 @@
 <?php
 abstract class _IndexController extends Base_Controller implements iController
 {
-    protected function ProcessApp($app_info)
+    public function ProcessApp(_IndexController $controller_obj, $app_info)
     {
         if(count($app_info["uri_parts"]) == 0)
             $app_info["controller_name"] = "Index";
@@ -10,7 +10,7 @@ abstract class _IndexController extends Base_Controller implements iController
         define("ACTIVE_VIEW", $app_info["controller_name"]);
         $app_info["controller_name"] .= "Controller";
 
-        if($app_info["controller_name"] == "IndexController") return $app_info;
+        if($app_info["controller_name"] == "IndexController") $controller_obj->Index($app_info);
         else
         {
             require(ACTIVE_APP_DIR . '/' . $app_info["controller_name"] . ".php");

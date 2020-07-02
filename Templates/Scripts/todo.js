@@ -83,7 +83,7 @@ function TODOList()
         todo.blackboard_DOM_element.appendChild(todo.edit_task_form_DOM_element);
         todo.blackboard_DOM_element.style.display = "flex";
         $(todo.blackboard_DOM_element).animate({ opacity: 1 }, 300);
-        AjaxQuery("/Home/Index/GetTask/task=" + edit_button.attributes["edit-task-id"].value, "get", {}, false, function (answer) {
+        AjaxQuery("/Home/GetTask", "post", {"task" : edit_button.attributes["edit-task-id"].value}, false, function (answer) {
             edit_window_save_changes_button.setAttribute("editing-task", edit_button.attributes["edit-task-id"].value);
             edit_window_usertask_field.value = answer["Arguments"][0]["task_content"];
             edit_window_is_completed_field.checked = answer["Arguments"][0]["is_completed"] == 1;
@@ -152,7 +152,7 @@ function TODOList()
     }
     
     function add_window_send_data_to_server(data) {
-        AjaxQuery("/Home/Index/AddTask", "post", data, true,
+        AjaxQuery("/Home/AddTask", "post", data, true,
 function () {
             edit_window_close_button_click(self);
             $(success_message_DOM_element).animate({ opacity: 1 }, 300, function () {
@@ -173,7 +173,7 @@ function () {
 
     function send_editor_data_to_server(data)
     {
-        AjaxQuery("/Home/Index/EditTask", "post", data, true,
+        AjaxQuery("/Home/EditTask", "post", data, true,
             function () {
                 edit_window_close_button_click(self);
                 $(success_message_DOM_element).animate({ opacity: 1 }, 300, function () {

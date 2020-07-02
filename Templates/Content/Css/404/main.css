@@ -1,0 +1,29 @@
+@font-face {
+  font-family: MarckScript;
+  src: url(../../Fonts/MarckScript-Regular.ttf); }
+* {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  background: url(../imgs/notfoundbg.svg);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: 100%; }
+
+a {
+  color: rgba(0, 0, 255, 0.7);
+  font-family: Courier New, Courier, monospace; }
+
+.error {
+  display: block;
+  margin-top: 23%; }
+  .error_header {
+    font-family: Arial;
+    font-size: 120px;
+    vertical-align: middle;
+    text-align: center; }
+  .error_text {
+    font-family: Courier New, Courier, monospace;
+    vertical-align: middle;
+    text-align: center; }

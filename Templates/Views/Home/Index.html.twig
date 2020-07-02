@@ -14,7 +14,7 @@
                         <div class="row contents">
                             <div class="col"><p class="username">{{ TODO_item.username }}</p></div>
                             <div class="col"><p class="email">{{ TODO_item.email }}</p></div>
-                            <div class="col"><p class="task">{{ TODO_item.task_content }}</p></div>
+                            <div class="col"><p class="task">{{ TODO_item.task_content }} {% if TODO_item.is_edited %}<i class="fa fa-pencil" aria-hidden="true"></i>{% endif %}</p></div>
                             <div class="col">{% if TODO_item.is_completed != 0 %}<div class="task_completed_box"><i class="fa fa-check-square" style="color: limegreen; font-size: 30px" aria-hidden="true"></i></div>{% endif %}{% if is_admin() %}<div class="edit_row_button" edit-task-id="{{ TODO_item.id }}"><i class="fa fa-pencil" aria-hidden="true"></i></div>{% endif %}</div>
                         </div>
                     {% endfor %}
@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row login-link-wrapper">
             <div class="col">
-                <a href="/Login/Index">Log In</a>
+                <a href="/Auth/Index">Log In</a>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row login-link-wrapper">
                 <div class="col">
-                    <a href="/Login/Index/Logout">Log Out</a>
+                    <a href="/Auth/Logout">Log Out</a>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ class TODOModel implements iModel
         }
 
         $pagination = $this->GetPagination($page, $rows_per_page, "/sortby=" . $params["sortby"] . "/sortdir=" . $params["sortdir"]);
-        $items = R::getAll("SELECT id, username, email, task_content, is_completed FROM tasks" . $order_sql_query_part . $limit_sql_query_part);
+        $items = R::getAll("SELECT id, username, email, task_content, is_completed, is_edited FROM tasks" . $order_sql_query_part . $limit_sql_query_part);
         return ["items" => $items, "pagination" => $pagination, "current_page_link" => $_SERVER["REQUEST_URI"]];
     }
 
@@ -46,6 +46,8 @@ class TODOModel implements iModel
         if($this->Exists($id))
         {
             $task = R::load("tasks", $id);
+            if($task["task_content"] != $task_content)
+                $task["is_edited"] = 1;
             $task["task_content"] = $task_content;
             $task["is_completed"] = $is_completed;
             R::store($task);

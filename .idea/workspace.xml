@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2d9b942-e917-444c-a4b3-08e15f9acb3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Templates/Shared/~base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Shared/~base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Views/Login/Index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Views/Login/Index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/404/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Auth/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Auth/LogoutController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Home/AddTaskController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Home/EditTaskController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Home/GetTaskController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Auth/UserModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/Content/Css/404/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/Content/Css/Auth/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/Content/Scss/Auth/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/Views/404/Index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/Views/Auth/Index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Home/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Home/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Login/IndexController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/Core/Bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Core/Bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/Core/System/_IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Core/System/_IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Home/TODOModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Home/TODOModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Content/Css/Login/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Content/Scss/Login/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Scripts/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Scripts/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Scripts/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Scripts/todo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Views/Home/Index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Views/Home/Index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Views/Login/Index.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +52,16 @@
     <scope name="main" pattern="!file:Templates/Content/Scss/main.scss" />
   </component>
   <component name="ProjectId" id="1e4b3y7uczS4q4p7AKclCgXh11A" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -69,12 +94,17 @@
       <workItem from="1593585950768" duration="1037000" />
       <workItem from="1593586995418" duration="46887000" />
       <workItem from="1593635906032" duration="1028000" />
-      <workItem from="1593639437943" duration="107000" />
+      <workItem from="1593639437943" duration="165000" />
+      <workItem from="1593693097718" duration="73000" />
+      <workItem from="1593707050132" duration="3733000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="873" y="363" key="#File_Watchers" timestamp="1593586865872">
