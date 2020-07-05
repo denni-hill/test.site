@@ -1,4 +1,4 @@
-function AjaxQuery(qurl, qtype, qdata, qreload, success, fail)
+function AjaxQuery(qurl, qtype, qdata, qreload, success, fail, handle_redirection)
 {
     $.ajax({
         url: qurl,
@@ -21,7 +21,7 @@ function AjaxQuery(qurl, qtype, qdata, qreload, success, fail)
             {
                 if(Answer['Redirect'] !== "")
                 {
-                    window.location = Answer['Redirect'];
+                    if(handle_redirection === undefined || handle_redirection === false) window.location = Answer['Redirect'];
                 }
                 else
                 {

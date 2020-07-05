@@ -7610,16 +7610,11 @@ body {
     .login-form-wrapper .login-form .header {
       font-weight: 500;
       font-size: 30px; }
-    .login-form-wrapper .login-form p {
-      margin: 5px 0px 0px 0px; }
-    .login-form-wrapper .login-form p:first-child {
-      margin: 0px; }
     .login-form-wrapper .login-form .login-button {
       display: block;
       margin-bottom: 10px;
       width: 100%;
-      border-radius: 0px 0px 10px 10px;
-      margin-top: 10px; }
+      border-radius: 0px 0px 10px 10px; }
     .login-form-wrapper .login-form .login-form-errorMessage, .login-form-wrapper .login-form .login-form-errorMessage {
       font-size: 13px; }
     .login-form-wrapper .login-form .login-form-errorMessage {

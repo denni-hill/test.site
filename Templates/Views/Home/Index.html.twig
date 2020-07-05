@@ -70,21 +70,21 @@
             </div>
         </div>
         <p>Enter your name:</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
             </div>
             <input type="text" class="form-control username-todo-intput" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
         </div>
         <p>Enter your e-mail:</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon2">@</span>
             </div>
             <input type="text" class="form-control useremail-todo-intput" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
         </div>
         <p>Enter your task:</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
             </div>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <p>Enter your task:</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
             </div>
@@ -128,15 +128,6 @@
         </div>
     </div>
 
-    <div class="alert alert-danger bad-input-alert" role="alert">
-        <h4 class="alert-heading">Something went wrong...</h4>
-        <p></p>
-    </div>
-    <div class="alert alert-success data-sent-alert" role="alert">
-        <h4 class="alert-heading">Success!</h4>
-        <p>Data successfully sent to server!</p>
-    </div>
-
-
+<script type="text/javascript" src="{{ templates_dir }}/Scripts/PopupMessage.js"></script>
 <script src="{{ templates_dir }}/Scripts/todo.js"></script>
 {% endblock %}

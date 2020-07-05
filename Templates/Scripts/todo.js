@@ -8,8 +8,7 @@ function TODOList()
     document.getElementsByTagName("body")[0].removeChild(this.add_task_form_DOM_element);
     document.getElementsByTagName("body")[0].removeChild(this.edit_task_form_DOM_element);
 
-    let success_message_DOM_element = document.getElementsByClassName("data-sent-alert")[0];
-    let error_message_DOM_element = document.getElementsByClassName("bad-input-alert")[0];
+    this.add_task_form_DOM_element.style.display = this.edit_task_form_DOM_element.style.display = "block";
 
     let add_window_add_task_button = this.TODO_DOM_element.getElementsByClassName("add-task-button")[0];
     let add_window_submit_task_button = this.add_task_form_DOM_element.getElementsByClassName("submit-task-button")[0];
@@ -68,7 +67,13 @@ function TODOList()
         $(todo.blackboard_DOM_element).animate({ opacity: 1 }, 300);
     }
     function add_window_submit_task_button_click() {
-        if(!validate_fields()) return;
+        disable_input();
+
+        if(!validate_fields())
+        {
+            enable_input();
+            return;
+        }
 
         let data = {
             name : add_window_username_field.value,
@@ -83,23 +88,27 @@ function TODOList()
         todo.blackboard_DOM_element.appendChild(todo.edit_task_form_DOM_element);
         todo.blackboard_DOM_element.style.display = "flex";
         $(todo.blackboard_DOM_element).animate({ opacity: 1 }, 300);
+        disable_input();
         AjaxQuery("/Home/GetTask", "post", {"task" : edit_button.attributes["edit-task-id"].value}, false, function (answer) {
             edit_window_save_changes_button.setAttribute("editing-task", edit_button.attributes["edit-task-id"].value);
             edit_window_usertask_field.value = answer["Arguments"][0]["task_content"];
             edit_window_is_completed_field.checked = answer["Arguments"][0]["is_completed"] == 1;
+            enable_input();
         }, function () {
-            error_message_DOM_element.getElementsByTagName("p")[0].innerText = "Troubles occurred when receiving data from remote server. Please, reload page!";
-            $(error_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                setTimeout(function () {
-                    $(error_message_DOM_element).animate({ opacity: 0 }, 300);
-                }, 5000);
-            });
+            Popup.ShowErrorMessage("Server error!", "Troubles occurred while receiving data from remote server.\nReloading page...", function () {
+                document.location.reload();
+            }, 3000);
         });
     }
 
     function edit_window_save_changes_button_click(id)
     {
-        if(!validate_editor_fields()) return;
+        disable_input();
+        if(!validate_editor_fields())
+        {
+            enable_input();
+            return;
+        }
 
         let data = {
             id : id,
@@ -107,7 +116,7 @@ function TODOList()
             is_completed : edit_window_is_completed_field.checked ? 1 : 0
         };
 
-        send_editor_data_to_server(data);
+        edit_window_send_data_to_server(data);
     }
 
     function validate_editor_fields()
@@ -116,13 +125,7 @@ function TODOList()
         if(edit_window_usertask_field.value.length < 1) errors.push("Please, enter task!");
         if(errors.length > 0)
         {
-            error_message_DOM_element.getElementsByTagName("p")[0].innerText = errors.join("\n");
-            $(error_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                setTimeout(function () {
-                    $(error_message_DOM_element).animate({ opacity: 0 }, 300);
-                }, 5000);
-            });
-
+            Popup.ShowErrorMessage("Data validation error!", errors.join("\n"), undefined, 5000);
             return false
         }
         else
@@ -138,13 +141,7 @@ function TODOList()
 
         if(errors.length > 0)
         {
-            error_message_DOM_element.getElementsByTagName("p")[0].innerText = errors.join("\n");
-            $(error_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                setTimeout(function () {
-                    $(error_message_DOM_element).animate({ opacity: 0 }, 300);
-                }, 5000);
-            });
-
+            Popup.ShowErrorMessage("Data validation error!", errors.join("\n"), undefined, 5000);
             return false;
         }
         else
@@ -152,44 +149,32 @@ function TODOList()
     }
     
     function add_window_send_data_to_server(data) {
-        AjaxQuery("/Home/AddTask", "post", data, true,
-function () {
-            edit_window_close_button_click(self);
-            $(success_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                setTimeout(function () {
-                    $(success_message_DOM_element).animate({ opacity: 0 }, 300);
-                }, 5000);
-            });
+        AjaxQuery("/Home/AddTask", "post", data, false,
+function (Answer) {
+            Popup.ShowSuccessMessage("Success!", "New task added!\nReloading page...", function () {
+                edit_window_close_button_click(self);
+                window.location.reload();
+            }, 5000);
         },
     function (errors) {
-            error_message_DOM_element.getElementsByTagName("p")[0].innerText = errors.join("\n");
-            $(error_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                setTimeout(function () {
-                    $(error_message_DOM_element).animate({ opacity: 0 }, 300);
-                }, 5000);
-            });
-        });
+            Popup.ShowErrorMessage("Server error!", errors.join("\n"), undefined, 5000);
+            enable_input();
+        }, true);
     }
 
-    function send_editor_data_to_server(data)
+    function edit_window_send_data_to_server(data)
     {
-        AjaxQuery("/Home/EditTask", "post", data, true,
+        AjaxQuery("/Home/EditTask", "post", data, false,
             function () {
-                edit_window_close_button_click(self);
-                $(success_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                    setTimeout(function () {
-                        $(success_message_DOM_element).animate({ opacity: 0 }, 300);
-                    }, 5000);
-                });
+                Popup.ShowSuccessMessage("Success!", "Task edited!\nReloading page...", function () {
+                    edit_window_close_button_click(self);
+                    window.location.reload();
+                }, 5000);
             },
             function (errors) {
-                error_message_DOM_element.getElementsByTagName("p")[0].innerText = errors.join("\n");
-                $(error_message_DOM_element).animate({ opacity: 1 }, 300, function () {
-                    setTimeout(function () {
-                        $(error_message_DOM_element).animate({ opacity: 0 }, 300);
-                    }, 5000);
-                });
-            });
+                Popup.ShowErrorMessage("Server error!", errors.join("\n"), undefined, 5000);
+                enable_input();
+            }, true);
     }
     
     function edit_window_close_button_click(todo) {
@@ -249,6 +234,28 @@ function () {
             args_part += "/" + Object.keys(uri_params["args"])[i] + "=" + uri_params["args"][Object.keys(uri_params["args"])[i]];
         }
         return parts_part + args_part;
+    }
+    
+    function disable_input() {
+        add_window_add_task_button.setAttribute("disabled", "");
+        add_window_submit_task_button.setAttribute("disabled", "");
+        add_window_username_field.setAttribute("disabled", "");
+        add_window_useremail_field.setAttribute("disabled", "");
+        add_window_usertask_field.setAttribute("disabled", "");
+        edit_window_usertask_field.setAttribute("disabled", "");
+        edit_window_is_completed_field.setAttribute("disabled", "");
+        edit_window_save_changes_button.setAttribute("disabled", "");
+    }
+    
+    function enable_input() {
+        add_window_add_task_button.removeAttribute("disabled");
+        add_window_submit_task_button.removeAttribute("disabled");
+        add_window_username_field.removeAttribute("disabled");
+        add_window_useremail_field.removeAttribute("disabled");
+        add_window_usertask_field.removeAttribute("disabled");
+        edit_window_usertask_field.removeAttribute("disabled");
+        edit_window_is_completed_field.removeAttribute("disabled");
+        edit_window_save_changes_button.removeAttribute("disabled");
     }
 }
 
