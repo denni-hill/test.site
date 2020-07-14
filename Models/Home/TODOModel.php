@@ -1,5 +1,5 @@
 <?php
-class TODOModel implements iModel
+class TODOModel extends Base_Model
 {
     public function GetData($params = [])
     {
@@ -68,22 +68,22 @@ class TODOModel implements iModel
         if($page > $pages_count) $params["page"] = $pages_count;
 
         if($page > 1)
-            $pagination[] = ["link" => "/Home/Index/page=" . ($page-1), "number" => "Previous"];
+            $pagination[] = ["link" => "/Home/Index/page=" . ($page-1) . $sorting, "number" => "Previous"];
 
         for($i = 1; $i <= $pages_count; $i++)
         {
-            $pagination[] = ["link" => "/Home/Index/page=" . $i, "number" => $i];
+            $pagination[] = ["link" => "/Home/Index/page=" . $i . $sorting, "number" => $i];
         }
 
         if($page < $pages_count)
-            $pagination[] = ["link" => "/Home/Index/page=" . ($page+1), "number" => "Next"];
+            $pagination[] = ["link" => "/Home/Index/page=" . ($page+1) . $sorting, "number" => "Next"];
 
         return $pagination;
     }
 
     private function ValidatePageNumber($page, $rows_per_page)
     {
-        if(!is_numeric((int)$page)) return 1;
+        if(!is_numeric($page)) return 1;
         else
         {
             $total_items_count = R::getCell("SELECT COUNT(*) FROM tasks");

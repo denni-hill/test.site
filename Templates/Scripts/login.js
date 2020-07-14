@@ -42,7 +42,7 @@ function SubmitLoginForm()
     setTimeout(function(){
         let Hash = SHA256(SHA256(Login)+SHA256(Password));
     
-        AjaxQuery("/Auth/Index", "post", {hash : Hash}, false, success, fail, true);
+        AjaxQuery("/Auth/api/Index", "post", {hash : Hash}, false, success, fail, true);
     }, 5000);
 
     function EnableInput() {

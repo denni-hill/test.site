@@ -1,5 +1,5 @@
 <?php
-	class render extends DB_Controller
+	class render
 	{
 		private
 			$systemVars;
@@ -42,6 +42,7 @@
 
     class twig_extensions extends  \Twig_Extension
     {
+        //Adding custom functions into twig
         public function getFunctions()
         {
             return array(

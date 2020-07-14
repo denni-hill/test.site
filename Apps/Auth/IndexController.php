@@ -1,5 +1,5 @@
 <?php
-class IndexController extends _IndexController implements iController
+class IndexController extends _IndexController implements iController, iApi
 {
     function Index(array $app_info)
     {
@@ -9,6 +9,12 @@ class IndexController extends _IndexController implements iController
             return;
         }
 
+        View();
+    }
+
+
+    public function ApiIndex(array $appInfo = array())
+    {
         if(!empty($_POST))
         {
             $UserModel = new UserModel();
@@ -16,19 +22,14 @@ class IndexController extends _IndexController implements iController
             if($User)
             {
                 $_SESSION["logged_user"] = $User;
-                $this->AddRedirect("/");
+                $this->AjaxResponder->AddRedirect("/");
             }
             else
             {
-                $this->AddError("You entered wrong data!");
+                $this->AjaxResponder->AddError("You entered wrong data!");
             }
 
-            echo $this->GetJsonServerAnswer();
-            return;
+            echo $this->AjaxResponder->GetJsonServerAnswer();
         }
-
-        View();
     }
-
-
 }

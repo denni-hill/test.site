@@ -1,46 +1,18 @@
 <?php
+
+/**
+ * Class Base_Controller
+ * all the non-root controllers (not IndexController class) should extend this class. you can put here some functions or variables that you may want to use in whole site.
+ */
 abstract class Base_Controller
 {
-    private $Answer = array(
-        'Errors' => array(),
-        'Messages' => array(),
-        'Arguments' => array(),
-        'ConsoleLogs' => array(),
-        'Redirect' => "",
-    );
+    protected $AjaxResponder;
 
-    public function AddError($value)
-    {
-        $this->Answer['Errors'][] = $value;
-    }
+    protected $DataBaseProvider;
 
-    public function AddMessage($value)
+    public function __construct(AjaxResponder $AjaxResponder = NULL, DataBaseProvider $DataBaseProvider = NULL)
     {
-        $this->Answer['Messages'][] = $value;
-    }
-
-    public function AddArgument($value)
-    {
-        $this->Answer['Arguments'][] = $value;
-    }
-
-    public function AddRedirect($value)
-    {
-        $this->Answer['Redirect'] = $value;
-    }
-
-    public function AddConsoleLog($value)
-    {
-        $this->Answer["ConsoleLogs"][] = $value;
-    }
-
-    public function GetServerAnswer()
-    {
-        return $this->Answer;
-    }
-
-    public function GetJsonServerAnswer()
-    {
-        return json_encode($this->Answer);
+        $this->AjaxResponder = $AjaxResponder == NULL ? new AjaxResponder() : $AjaxResponder;
+        $this->DataBaseProvider = $DataBaseProvider == NULL ? new DataBaseProvider($this->AjaxResponder) : $DataBaseProvider;
     }
 }

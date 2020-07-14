@@ -1,3 +1,5 @@
+//Simple jquary based ajax query with integrated server responses handler for this MVC
+
 function AjaxQuery(qurl, qtype, qdata, qreload, success, fail, handle_redirection)
 {
     $.ajax({

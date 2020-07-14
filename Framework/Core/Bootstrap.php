@@ -1,18 +1,37 @@
 <?php
 
+/**
+ * Class MVCEngine
+ * MVC MAGIC IS HERE
+ */
 class MVCEngine
 {
+    /**
+     * @var - contains URI information
+     */
+    /**
+     * @var - contains App information
+     */
     private
         $Uri,
         $App;
 
+    /**
+     * MVCEngine constructor.
+     * @param array $Routes
+     */
     public function __construct(array $Routes)
     {
-        $this->ProcessGetUri($Routes['redirects']);
-        $this->ProcessPath($Routes['routes']);
-        $this->ProcessControllersAndModels();
+        $this->ProcessGetUri($Routes['Redirects']);
+        $this->ProcessPath($Routes['Routes']);
+        $this->ProcessModels();
+        $this->ProcessControllers();
     }
 
+    /**
+     * @param array $Redirects
+     * handling redirects and processing URI
+     */
     private function ProcessGetUri(array $Redirects)
     {
         $this->Uri = $_SERVER['REQUEST_URI'];
@@ -27,6 +46,10 @@ class MVCEngine
         }
     }
 
+    /**
+     * @param array $Routes
+     * processing routes
+     */
     private function ProcessPath(array $Routes)
     {
         foreach($Routes as $ShortUri => $FullUri)
@@ -42,44 +65,58 @@ class MVCEngine
             }
         }
 
-        $this->App['name'] = array_shift($this->Uri);
-        $this->App['uri_parts'] = [];
+        $this->App['Name'] = array_shift($this->Uri);
+        $this->App['UriParts'] = [];
 
-        $first_parameter_found = false;
+        $firstParameterFound = false;
         foreach($this->Uri as $Parameter)
         {
-            if(substr_count($Parameter, "=") == 0 && !$first_parameter_found)
+            if(substr_count($Parameter, "=") == 0 && !$firstParameterFound)
             {
-                $this->App['uri_parts'][] = $Parameter;
+                $this->App['UriParts'][] = $Parameter;
                 continue;
             }
-            $Key = explode("=", $Parameter)[0];
-            $Value = join("=", array_splice(explode("=", $Parameter), 1, 1));
-            if($Value == "") $Value = true;
-            $this->App['args'][$Key] = urldecode($Value);
-            $first_parameter_found = true;
+
+            $eqPos = stripos($Parameter, "=");
+            if($eqPos)
+            {
+                $Key = substr($Parameter, 0, $eqPos);
+                $Value = substr($Parameter, $eqPos+1);
+                if($Value == "") $Value = true;
+                $this->App['Args'][$Key] = urldecode($Value);
+                $firstParameterFound = true;
+            }
         }
     }
 
-    private function ProcessControllersAndModels()
+    /**
+     * requiring all the models in models folder.
+     */
+    private function ProcessModels()
     {
-        if(!file_exists(CONTROLLERS_DIR . '/' . $this->App['name'] . '/IndexController.php'))
-        {
-            $this->App['args'] = $this->App['name'];
-            $this->App['name'] = '404';
-            $this->App['controller'] = 'IndexController';
-        }
-
-        define("ACTIVE_APP", $this->App['name']);
-        define("ACTIVE_APP_DIR", CONTROLLERS_DIR . '/' . $this->App['name']);
-
         $models = glob(MODELS_DIR . '/*/*Model.php');
         foreach ($models as $model) {
             require $model;
         }
+    }
 
-        require CONTROLLERS_DIR . '/' . $this->App['name'] . '/IndexController.php';
-        $controller_obj = new IndexController();
-        $controller_obj->ProcessApp($controller_obj, $this->App);
+    /**
+     * checking if controller exists and, if it is, it requires it. Else it will require 404/IndexController. Notice that 404/IndexController should exists, if it isn't, you will get an exception.
+     */
+    private function ProcessControllers()
+    {
+        if(!file_exists(APPS_DIR . '/' . $this->App['Name'] . '/IndexController.php'))
+        {
+            $this->App['Args'] = $this->App['Name'];
+            $this->App['Name'] = '404';
+            $this->App['Controller'] = 'IndexController';
+        }
+
+        define("ACTIVE_APP", $this->App['Name']);
+        define("ACTIVE_APP_DIR", APPS_DIR . '/' . ACTIVE_APP);
+
+        require APPS_DIR . '/' . $this->App['Name'] . '/IndexController.php';
+        $indexControllerObj = new IndexController();
+        $indexControllerObj->ProcessApp($indexControllerObj, $this->App);
     }
 }

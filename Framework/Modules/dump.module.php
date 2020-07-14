@@ -1,9 +1,10 @@
 <?php
 
-function dump($what)
+function dump($what, bool $exit = true)
 {
     echo "<pre>";
 	var_dump($what);
     echo "</pre>";
-    exit();
+    if($exit)
+        exit();
 }

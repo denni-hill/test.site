@@ -4,4 +4,4 @@
 
     require FRAMEWORK_DIR . '/Starter.php';
 
-    $app = new MVCEngine( require CONTROLLERS_DIR . '/Routes.php' );
+    $app = new MVCEngine( require APPS_DIR . '/Routes.php' );

@@ -1,5 +1,5 @@
 <?php
-class UserModel implements iModel
+class UserModel extends Base_Model
 {
     public function GetData($params = [])
     {

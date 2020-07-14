@@ -1,20 +1,50 @@
 <?php
-abstract class _IndexController extends Base_Controller implements iController
+
+/**
+ * Class _IndexController
+ * all the IndexControllers (root controllers of each app) should extend this class. It already extends Base_Controller class and realises function to route requests inside the app,
+ * so you can override ProcessApp method in your IndexController and make your app more flexible.
+ */
+abstract class _IndexController extends Base_Controller
 {
-    public function ProcessApp(_IndexController $controller_obj, $app_info)
+    public function ProcessApp(_IndexController $controllerObj, $appInfo)
     {
-        if(count($app_info["uri_parts"]) == 0)
-            $app_info["controller_name"] = "Index";
-        else $app_info["controller_name"] = array_shift($app_info["uri_parts"]);
+        $callableMethodName = "Index";
+        if (count($appInfo["UriParts"]) == 0)
+            $appInfo["ControllerName"] = "Index";
+        else $appInfo["ControllerName"] = array_shift($appInfo["UriParts"]);
 
-        define("ACTIVE_VIEW", $app_info["controller_name"]);
-        $app_info["controller_name"] .= "Controller";
+        if (strtolower($appInfo["ControllerName"]) == "api") {
+            $callableMethodName = "ApiIndex";
+            if (count($appInfo["UriParts"]) == 0)
+                $appInfo["ControllerName"] = "Index";
+            else $appInfo["ControllerName"] = array_shift($appInfo["UriParts"]);
+        }
 
-        if($app_info["controller_name"] == "IndexController") $controller_obj->Index($app_info);
+        define("ACTIVE_VIEW", $appInfo["ControllerName"]);
+        $appInfo["ControllerName"] .= "Controller";
+
+        if(strtolower($appInfo["ControllerName"]) == "indexcontroller")
+        {
+            if(method_exists($controllerObj, $callableMethodName))
+            {
+                $controllerObj->$callableMethodName($appInfo);
+            }
+            else moveTo('/404/');
+        }
         else
         {
-            require(ACTIVE_APP_DIR . '/' . $app_info["controller_name"] . ".php");
-            (new $app_info["controller_name"])->Index($app_info);
+            if(file_exists(ACTIVE_APP_DIR . '/' . $appInfo["ControllerName"] . ".php"))
+            {
+                require(ACTIVE_APP_DIR . '/' . $appInfo["ControllerName"] . ".php");
+                $controllerObj = new $appInfo["ControllerName"]();
+                if(method_exists($controllerObj, $callableMethodName))
+                {
+                    $controllerObj->$callableMethodName($appInfo);
+                }
+                else moveTo('/404/');
+            }
+            else moveTo('/404/');
         }
     }
 }
